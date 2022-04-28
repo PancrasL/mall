@@ -11,15 +11,19 @@
     <description>商城应用</description>
 
     <modules>
+        <!-- 微服务组件 -->
         <module>mall-product</module>
         <module>mall-warehouse</module>
         <module>mall-order</module>
         <module>mall-coupon</module>
         <module>mall-member</module>
         <module>mall-common</module>
-
+        <!-- 网关 -->
+        <module>mall-gateway</module>
+        <!-- 界面 -->
         <module>renren-fast</module>
         <module>renren-generator</module>
+        <module>mall-gateway</module>
     </modules>
 
     <properties>

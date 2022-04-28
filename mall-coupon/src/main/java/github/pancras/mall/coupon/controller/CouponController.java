@@ -5,6 +5,8 @@ import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,14 @@ import github.pancras.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Autowired
+    private CouponProperties couponProperties;
+
+    @RequestMapping("/test")
+    private R test(){
+        return R.ok().put("name", couponProperties.getName());
+    }
 
     /**
      * 优惠券信息
