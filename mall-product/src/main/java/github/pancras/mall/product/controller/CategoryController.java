@@ -1,6 +1,7 @@
 package github.pancras.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
@@ -31,6 +32,14 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    /**
+     * 以列表的形式查出所有分类以及子分类
+     */
+    @RequestMapping("/list/tree")
+    public R listTree(){
+        List<CategoryEntity> entities =  categoryService.listWithTree();
+        return R.ok().put("data", entities);
+    }
     /**
      * 列表
      */
