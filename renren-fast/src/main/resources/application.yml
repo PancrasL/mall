@@ -2,8 +2,9 @@
 server:
   tomcat:
     uri-encoding: UTF-8
-    max-threads: 1000
-    min-spare-threads: 30
+    threads:
+      max: 1000
+      min-spare: 30
   port: 8080
   servlet:
     context-path: /renren-fast
@@ -39,10 +40,10 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   application:
     name: renren-fast
-#  cloud:
-#    nacos:
-#      discovery:
-#        server-addr: localhost:8848
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
 #  resources:
 #    add-mappings: false
 #mybatis
