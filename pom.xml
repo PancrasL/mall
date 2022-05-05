@@ -42,6 +42,7 @@
         <commons-lang.version>2.6</commons-lang.version>
         <mysql.version>8.0.28</mysql.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
+        <minio.version>8.3.9</minio.version>
     </properties>
 
     <dependencyManagement>
