@@ -1,4 +1,4 @@
-package github.pancras.mall;
+package github.pancras.mall.thirdparty.oss;
 
 import java.io.File;
 import java.io.FileInputStream;
