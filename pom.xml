@@ -23,7 +23,6 @@
         <!-- 界面 -->
         <module>renren-fast</module>
         <module>renren-generator</module>
-        <module>mall-gateway</module>
         <module>mall-thirdparty</module>
     </modules>
 
@@ -38,7 +37,7 @@
         <springcloud-alibaba.version>2.2.6.RELEASE</springcloud-alibaba.version>
 
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
-        <lombok.version>1.18.22</lombok.version>
+        <lombok.version>1.18.24</lombok.version>
         <apache-httpcore.version>4.4.15</apache-httpcore.version>
         <commons-lang.version>2.6</commons-lang.version>
         <mysql.version>8.0.28</mysql.version>
@@ -68,6 +67,37 @@
                 <version>${springcloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${apache-httpcore.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+            <!-- mysql 驱动-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${validation-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
