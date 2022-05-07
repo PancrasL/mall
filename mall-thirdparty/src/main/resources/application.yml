@@ -5,3 +5,11 @@ spring:
         server-addr: localhost:8848
   application:
     name: mall-thirdparty
+server:
+  port: 30000
+
+minio:
+  endpoint: http://127.0.0.1:9100/
+  access-key: minio
+  secret-key: 12345678
+  bucket: mall-hello

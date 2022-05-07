@@ -8,6 +8,14 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/product/(?<segment>.*),/product/$\{segment}
+
+        - id: thirdparty_route
+          uri: lb://mall-thirdparty
+          predicates:
+            - Path=/api/thirdparty/**
+          filters:
+            - RewritePath=/api/thirdparty/(?<segment>.*),/$\{segment}
+
         - id: admin_route
           uri: lb://renren-fast
           ## 将http://localhost:88/api/captcha.jpg 转换为 http://localhost:8080/renren-fast/captcha.jpg
@@ -15,4 +23,3 @@ spring:
             - Path=/api/**
           filters:
             - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
-
