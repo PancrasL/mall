@@ -1,6 +1,7 @@
 package github.pancras.mall.product.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 
 import github.pancras.common.utils.PageUtils;
 import github.pancras.common.utils.R;
+import github.pancras.common.validator.group.AddGroup;
 import github.pancras.mall.product.entity.BrandEntity;
 import github.pancras.mall.product.service.BrandService;
 
@@ -58,7 +60,7 @@ public class BrandController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
-    public R save(@Valid @RequestBody BrandEntity brand) {
+    public R save(@Validated({AddGroup.class}) @RequestBody BrandEntity brand) {
         brandService.save(brand);
 
         return R.ok();
