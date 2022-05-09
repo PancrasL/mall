@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
 import java.util.Date;
 import java.util.Map;
+import java.util.UUID;
 
 import github.pancras.common.utils.R;
 import io.minio.MinioClient;
@@ -35,7 +36,7 @@ public class OssController {
     @RequestMapping("/oss/policy/{objectName}")
     public R policy(@PathVariable String objectName) throws ServerException, InsufficientDataException, ErrorResponseException, IOException, NoSuchAlgorithmException, InvalidKeyException, InvalidResponseException, XmlParserException, InternalException {
         String format = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-        objectName = format + "/" + objectName;
+        objectName = format + "/"+ UUID.randomUUID() + "_" + objectName;
         // 1. 创建一个Post 策略
         // 为存储桶创建一个上传策略，过期时间为7天
         PostPolicy policy = new PostPolicy(bucketName, ZonedDateTime.now().plusDays(7));
