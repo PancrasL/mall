@@ -1,15 +1,21 @@
 package github.pancras.mall.product.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 //import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 import github.pancras.mall.product.entity.BrandEntity;
 import github.pancras.mall.product.service.BrandService;
@@ -59,7 +65,16 @@ public class BrandController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
-    public R save(@RequestBody BrandEntity brand){
+    public R save(@Valid @RequestBody BrandEntity brand, BindingResult result){
+        if(result.hasErrors()){
+            System.out.println("error");
+            Map<String, String> res = new HashMap<>();
+            for (FieldError err : result.getFieldErrors()) {
+                res.put(err.getField(), err.getDefaultMessage());
+            }
+            return R.error().put("data", res);
+        }
+        System.out.println("success");
 		brandService.save(brand);
 
         return R.ok();
